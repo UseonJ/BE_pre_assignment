@@ -1,18 +1,14 @@
-import { ShippingInfo } from './shipping-info.dto';
-import { PaymentInfo } from './payment-info.dto';
-import { ProductInfo } from './product-info.dto';
-import { IsString, IsDateString ,IsInt } from 'class-validator';
+import { OrderModel } from '../models/order.model';
+import { ShippingInfo } from '../models/shipping-info.model';
+import { PaymentInfo } from '../models/payment-info.model';
+import { ProductInfo } from '../models/product-info.model';
 
-export class GetOrderDataDto {
-    @IsString()
-    orderID: string;
-    @IsString()
-    customerID: string;
-    products: ProductInfo[];
-    @IsDateString()
-    orderDate: string;
-    @IsInt()
-    orderStatus: number;
-    shippingInfo: ShippingInfo;
-    paymentInfo: PaymentInfo;
+export class GetOrderDataDto extends OrderModel{
+        orderID: string;
+        customerID: string;
+        products: ProductInfo[];
+        orderDate: string;
+        orderStatus: number;
+        shippingInfo: ShippingInfo;
+        paymentInfo: PaymentInfo;
 }
