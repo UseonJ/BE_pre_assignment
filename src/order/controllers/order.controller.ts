@@ -1,47 +1,17 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CreateOrderDto } from "../dtos/create-order.dto";
 import { GetOrderDataDto } from "../dtos/get-order-data.dto";
+import * as fs from "fs";
+import * as path from "path";
 
 @Controller("order")
 export class OrderController {
-  // @Get()
-  // getExternalData() {
-  //     return "Order data from the External API";
-  // }
 
   @Get()
   getAllOrderDataList(): GetOrderDataDto[] {
-    return [
-      {
-        orderID: "orderID",
-        customerID: "customerID",
-        products: [
-          {
-            productID: "productID",
-            productName: "productName",
-            productPrice: 10000,
-            productQuantity: 1,
-          },
-        ],
-        orderDate: "2021-01-01",
-        orderStatus: 1,
-        shippingInfo: {
-          shippingID: "shippingID",
-          orderID: "orderID",
-          shippingDate: "2021-01-01",
-          shippingStatus: 1,
-          shippingAddress: "shippingAddress",
-        },
-        paymentInfo: {
-          paymentID: "paymentID",
-          orderID: "orderID",
-          paymentDate: "2021-01-01",
-          paymentStatus: 1,
-          paymentMethod: 1,
-          paymentAmount: 10000,
-        },
-      },
-    ];
+    const ordersFilePath = path.join(__dirname, '../../../orders.json');
+    const ordersData = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
+    return ordersData;
   }
 
   @Get("/:orderID")
