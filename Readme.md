@@ -64,13 +64,17 @@
     - 외부 주문데이터 수신 : /{외부 시스템 엔드포인트 호출} 
     - 내부 주문데이터 생성 : /order (POST)
     - 내부 주문데이터 전체 조회 : /order (GET)
-    - 내부 주문데이터 단일/리스트 조회(주문 ID/고객 ID) : /order?orderID={orderID} || /order?customerID={customerID} (GET)
+    - 내부 주문데이터 단일/리스트 조회(주문 ID/고객 ID) : /order?orderID={orderID} (GET)
+    /order?customerID={customerID} (GET)
 
 ## 시스템 구현
 
 ### Nest.js 프로젝트 생성
     - example을 clone하거나 boilerplate를 이용해서 시작하지않고 코드와 패키지 등을 좀 더 섬세하게 컨트롤 할 수 있도록 직접 프로젝트를 생성하였습니다.
     - 프로젝트 초기 설정 : 
+        패키지 매니저 설정 : ```pnpm init```
+        nestjs 필수 패키지 설치 : nestjs/common, nestjs/core, nestjs/platform-express, reflect-metadata, typscript
+        typescript 설정 : experimetalDecorators를 true로 설정하여 Typescript가 @Controller()와 같은 데코레이터를 활용할 수 있도록 하고, emitDecoratorMetadata를 true로 설정하여 클래스 의존성 처리를 할 수 있도록 설정했습니다.
 
 ### 모듈,컨트롤러 생성
 
