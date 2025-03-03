@@ -31,6 +31,7 @@ class Payment {
     + paymentStatus: PaymentStatus
     + paymentDate: date
     + paymentMethod: PaymentMethod
+    + paymentAmount: double
 }
 
 enum ShippingStatus {
