@@ -1,11 +1,8 @@
-import { ShippingInfo } from './shipping-info.dto';
-import { PaymentInfo } from './payment-info.dto';
+import { ProductInfo } from './product-info.dto';
+import { IsString } from 'class-validator';
 
 export class CreateOrderDto {
-    orderID: string;
+    @IsString()
     customerID: string;
-    orderDate: string;
-    orderStatus: number;
-    shippingInfo: ShippingInfo;
-    paymentInfo: PaymentInfo;
+    products: ProductInfo[];
 }
