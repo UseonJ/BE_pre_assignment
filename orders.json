@@ -1,0 +1,31 @@
+[
+  {
+    "orderID": "orderID",
+    "customerID": "customerID",
+    "products": [
+      {
+        "productID": "productID",
+        "productName": "productName",
+        "productPrice": 10000,
+        "productQuantity": 1
+      }
+    ],
+    "orderDate": "2021-01-01",
+    "orderStatus": 1,
+    "shippingInfo": {
+      "shippingID": "shippingID",
+      "orderID": "orderID",
+      "shippingDate": "2021-01-01",
+      "shippingStatus": 1,
+      "shippingAddress": "shippingAddress"
+    },
+    "paymentInfo": {
+      "paymentID": "paymentID",
+      "orderID": "orderID",
+      "paymentDate": "2021-01-01",
+      "paymentStatus": 1,
+      "paymentMethod": 1,
+      "paymentAmount": 10000
+    }
+  }
+]
